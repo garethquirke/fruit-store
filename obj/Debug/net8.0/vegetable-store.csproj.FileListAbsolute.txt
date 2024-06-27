@@ -12,3 +12,4 @@
 /home/gareth/Development/Projects/vegetable-store/obj/Debug/net8.0/vegetable-store.pdb
 /home/gareth/Development/Projects/vegetable-store/obj/Debug/net8.0/vegetable-store.genruntimeconfig.cache
 /home/gareth/Development/Projects/vegetable-store/obj/Debug/net8.0/ref/vegetable-store.dll
+/home/gareth/Development/Projects/vegetable-store/obj/Debug/net8.0/vegetable-store.sourcelink.json

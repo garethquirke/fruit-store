@@ -1,1 +1,1 @@
-    public enum ProductType { Tomato, Aubergine, Carrot }
+    public enum VegetableType { Tomato, Aubergine, Carrot }
