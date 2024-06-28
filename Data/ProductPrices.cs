@@ -12,9 +12,17 @@ public class PriceList
 {
     public List<Vegetable> Vegetables { get; set; } = new List<Vegetable>();
 
-    public void SetVegetablePricesFromCsv(string csvFilePath)
+    public PriceList(string priceFile)
     {
-        Vegetables = File.ReadAllLines(csvFilePath)
+        SetVegetablePricesFromCsv(priceFile);
+    }
+
+    private void SetVegetablePricesFromCsv(string csvFilePath)
+    {
+        try
+        {
+            string pricePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", csvFilePath);
+            Vegetables = File.ReadAllLines(pricePath)
                            .Skip(1)
                            .Select(x => x.Split(','))
                            .Select(x => new Vegetable
@@ -22,5 +30,19 @@ public class PriceList
                                Type = (VegetableType)Enum.Parse(typeof(VegetableType), x[0], true),
                                Price = double.Parse(x[1])
                            }).ToList();
+
+            foreach (var item in Vegetables)
+            {
+                Console.WriteLine(item.Price + " " + item.Type);
+            }
+        }
+        catch (FileNotFoundException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }

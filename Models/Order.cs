@@ -1,8 +1,9 @@
 public class Order {
-    public VegetableType VegetableType { get; set; }
-    public double ItemPrice { get; set; }
     public int Quantity { get; set; }
-    public double Subtotal { get; set; }
+}
+
+public class VegetableOrder : Order {
+    public VegetableType VegetableType { get; set; }
 }
 
 // Product

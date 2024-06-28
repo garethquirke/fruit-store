@@ -4,11 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
+        // Move this to VegetableStore class
+        // Set PriceList
+        // Set Order
         try
         {
-            string pricePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "PRODUCT_PRICES.csv");
-            var priceList = new PriceList();
-            priceList.SetVegetablePricesFromCsv(pricePath);
+
+            var priceList = new PriceList("PRODUCT_PRICES.csv");
+            var VegetableStore = new VegetableStore() { PriceList = priceList, PriceDocument = "PRODUCT_PRICES.csv" };
 
             foreach (var item in priceList.Vegetables)
             {
@@ -19,6 +22,16 @@ class Program
         {
             Console.WriteLine(ex.Message);
         }
+
+        try
+        {
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
 
 
 

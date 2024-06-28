@@ -3,7 +3,7 @@ public class Invoice {
 
     public List<Offer> Offers{ get; set; } = new List<Offer>();
 
-    public double Subtotal => Orders.Sum(order => order.Subtotal);
+    // public double Subtotal => Orders.Sum(order => order.Subtotal);
 
     public double TotalDiscount => Offers.Sum(offer => offer.Discount);
 
