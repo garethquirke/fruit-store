@@ -28,13 +28,8 @@ public class PriceList
                            .Select(x => new Vegetable
                            {
                                Type = (VegetableType)Enum.Parse(typeof(VegetableType), x[0], true),
-                               Price = double.Parse(x[1])
+                               Price = double.Parse(x[1]) // TODO: Possible apply discount function here
                            }).ToList();
-
-            foreach (var item in Vegetables)
-            {
-                Console.WriteLine(item.Price + " " + item.Type);
-            }
         }
         catch (FileNotFoundException ex)
         {

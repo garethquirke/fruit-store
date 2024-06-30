@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vegetable-store")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0905841d7cf193ceb93533f2c4a76979225213a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb420080b40718d8865f2b393d5b04f9ed648e7d")]
 [assembly: System.Reflection.AssemblyProductAttribute("vegetable-store")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vegetable-store")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,27 +1,24 @@
-public sealed class VegetableStore
-{
-    public required string PriceDocument { get; set; } = "";
-    public required PriceList PriceList { get; set; }
-    public List<VegetableOrder> OrderList { get; set; } = new List<VegetableOrder>();
+public sealed class VegetableStore {
+    public PriceList _priceList { get; set; }
 
-    public void SetVegetableOrderFromCsv(string csvFilePath)
+    public VegetableStore(PriceList priceList)
+    {
+        _priceList = priceList;
+    }
+    public Invoice HandleOrder(string csvFilePath)
+    {
+        var vegetableOrder = LoadOrderFromFile(csvFilePath);
+        return new Invoice(_priceList, vegetableOrder);
+    }
+    private List<VegetableOrder> LoadOrderFromFile(string csvFilePath)
     {
         try
         {
             string orderPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", csvFilePath);
-            OrderList = File.ReadAllLines(orderPath)
+            return File.ReadAllLines(orderPath)
                            .Skip(1)
-                           .Select(x => x.Split(','))
-                           .Select(x => new VegetableOrder
-                           {
-                               VegetableType = (VegetableType)Enum.Parse(typeof(VegetableType), x[0], true),
-                               Quantity = int.Parse(x[1])
-                           }).ToList();
-
-            foreach (var item in OrderList)
-            {
-                Console.WriteLine(item.VegetableType + " " + item.Quantity);
-            }
+                           .Select(ParseOrder)
+                           .ToList();
         }
         catch (FileNotFoundException ex)
         {
@@ -31,10 +28,18 @@ public sealed class VegetableStore
         {
             Console.WriteLine(ex.Message);
         }
+
+        return new List<VegetableOrder>();
     }
 
 
-        public void PrintInvoice() {
-            
-        }
+    private VegetableOrder ParseOrder(string line)
+    {
+        var parts = line.Split(',');
+        var vegetableType = (VegetableType)Enum.Parse(typeof(VegetableType), parts[0], true);
+        var quantity = int.Parse(parts[1]);
+
+        return new VegetableOrder(vegetableType, quantity, _priceList);
+    }
+
 }
