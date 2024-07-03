@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "prV/AszDyj0=",
+  "success": true,
+  "projectFilePath": "/home/gareth/Development/Projects/vegetable-store/Main/vegetable-store.csproj",
+  "expectedPackageFiles": [
+    "/home/gareth/.nuget/packages/microsoft.netcore.app.ref/8.0.6/microsoft.netcore.app.ref.8.0.6.nupkg.sha512",
+    "/home/gareth/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.6/microsoft.aspnetcore.app.ref.8.0.6.nupkg.sha512",
+    "/home/gareth/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.6/microsoft.netcore.app.host.linux-x64.8.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
